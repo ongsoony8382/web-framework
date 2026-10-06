@@ -2,7 +2,9 @@ package bank.service;
 
 import bank.model.AccountDAO;
 import bank.model.CreateReq;
+import org.springframework.stereotype.Component;
 
+@Component("cservice")
 public class AccountCreateService {
     private final AccountDAO dao;
 

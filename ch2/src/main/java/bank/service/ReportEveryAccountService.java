@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-// @Setter
-@Component("one")
+import java.util.Collection;
+//@Setter
+@Component("every")
 @NoArgsConstructor
-public class ReportOneAccountService {
+public class ReportEveryAccountService {
     private AccountDAO dao;
     private ReportTool printer;
 
@@ -22,15 +23,13 @@ public class ReportOneAccountService {
 
     @Autowired
     public void setPrinter(
-            @Qualifier("basic") ReportTool printer) {
+            @Qualifier("summary") ReportTool printer) {
         this.printer = printer;
     }
 
-    public void printAccountInfo(String owner) {
-        Account account = dao.selectByOwner(owner);
-        if (account == null)
-            System.out.println("계좌가 없는 고객입니다.");
-        else{
+    public void printAccountList() {
+        Collection<Account> accounts = dao.selectAll();
+        for (Account account : accounts) {
             printer.print(account);
         }
     }

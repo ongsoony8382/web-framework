@@ -1,8 +1,11 @@
 package bank.model;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Collection;
 import java.util.HashMap;
 
+@Component
 public class AccountDAO {
     private final HashMap<String, Integer> ownerMap;
     private final HashMap<Integer, Account> accountMap;
