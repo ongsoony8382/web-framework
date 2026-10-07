@@ -5,9 +5,11 @@ import bank.service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
 @ComponentScan("bank")
+@EnableAspectJAutoProxy
 public class Config2 {
 //    @Bean
 //    public AccountDAO accountDAO() {
